@@ -1,0 +1,4 @@
+import pandas as pd
+
+df = pd.read_csv("D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Wild-Yak--Takin--and-High-Altitude-Bovids---Genomic-and-Geographic-Adaptations\Gene_Feature_Extraction\1_genomic_feature_extraction\takin_annotations.csv", sep="\t")
+genes = df[df["Feature_Type"] == "CDS"]
