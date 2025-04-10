@@ -1,0 +1,37 @@
+# myproject.proteinortho.tsv statistics:
+# number of groups that contains at least p% species:
+# p	species	groups	genes in groups
+0%	0	24251 (100%)	116856 (100%)	
+40%	1	24251 (100%)	116856 (100%)	
+70%	2	24251 (100%)	116856 (100%)	
+100%	3	18579 (76.61%)	99523 (85.16%)	
+# NOTE: p=100% correspond to the core proteome and p=0% to all groups
+# number of groups for each input species:
+water_buffalo_proteins.fasta	23797	98.12%
+wild_yak_proteins.fasta	23422	96.58%
+takin_proteins.fasta	19862	81.9%
+
+# ----------------------------------
+# graph file statistics:
+
+# The adjacency matrix, the number of edges between 2 species
+# file	takin_proteins.fasta	water_buffalo_proteins.fasta	wild_yak_proteins.fasta	
+takin_proteins.fasta	0	69630	55758
+water_buffalo_proteins.fasta	69630	0	126076
+wild_yak_proteins.fasta	55758	126076	0
+
+# file	average number of edges
+takin_proteins.fasta	41796	
+water_buffalo_proteins.fasta	65235.3333333333	
+wild_yak_proteins.fasta	60611.3333333333	
+
+# The 2-path matrix, the number of paths between 2 species of length 2
+# file	takin_proteins.fasta	water_buffalo_proteins.fasta	wild_yak_proteins.fasta	
+takin_proteins.fasta(0)	7957291464	7029745608	8778671880
+water_buffalo_proteins.fasta(1)	14059491216	20743494676	3882429540
+wild_yak_proteins.fasta(2)	17557343760	7764859080	19004112340
+
+# file	average number of 2-paths
+takin_proteins.fasta(0)	13191375480
+water_buffalo_proteins.fasta(1)	14189281657.3333
+wild_yak_proteins.fasta(2)	14775438393.3333
