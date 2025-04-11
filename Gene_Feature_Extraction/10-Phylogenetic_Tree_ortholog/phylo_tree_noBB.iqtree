@@ -1,0 +1,171 @@
+IQ-TREE 2.1.4-beta COVID-edition built Jun 24 2021
+
+Input file name: /home/sathya/core_orthologs_supermatrix.fasta
+Type of analysis: ModelFinder + tree reconstruction
+Random seed number: 924843
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf,
+Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)
+IQ-TREE 2: New models and efficient methods for phylogenetic inference
+in the genomic era. Mol. Biol. Evol., in press.
+https://doi.org/10.1093/molbev/msaa015
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 3 sequences with 2161500 amino-acid sites
+Number of constant sites: 1.716e+06 (= 79.3893% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 1.716e+06 (= 79.3893% of all sites)
+Number of parsimony informative sites: 0
+Number of distinct site patterns: 104
+
+ModelFinder
+-----------
+
+Best-fit model according to BIC: Q.mammal+F
+
+List of models sorted by BIC scores: 
+
+Model                  LogL         AIC      w-AIC        AICc     w-AICc         BIC      w-BIC
+Q.mammal+F      -8619521.687 17239087.374 +        1 17239087.374 +        1 17239364.273 +        1
+Q.plant+F       -8637350.514 17274745.028 -        0 17274745.028 -        0 17275021.927 -        0
+Q.bird+F        -8638796.372 17277636.744 -        0 17277636.744 -        0 17277913.643 -        0
+VT+F            -8640371.619 17280787.238 -        0 17280787.238 -        0 17281064.137 -        0
+JTT+F           -8642142.421 17284328.842 -        0 17284328.842 -        0 17284605.741 -        0
+JTTDCMut+F      -8648864.469 17297772.938 -        0 17297772.938 -        0 17298049.837 -        0
+Q.pfam+F        -8654871.949 17309787.898 -        0 17309787.898 -        0 17310064.797 -        0
+rtREV+F         -8668790.426 17337624.852 -        0 17337624.852 -        0 17337901.751 -        0
+Q.yeast+F       -8673620.040 17347284.080 -        0 17347284.080 -        0 17347560.979 -        0
+Q.insect+F      -8674986.212 17350016.424 -        0 17350016.424 -        0 17350293.323 -        0
+LG+F            -8677704.801 17355453.602 -        0 17355453.602 -        0 17355730.501 -        0
+WAG+F           -8688661.819 17377367.638 -        0 17377367.638 -        0 17377644.537 -        0
+PMB+F           -8696944.658 17393933.316 -        0 17393933.316 -        0 17394210.215 -        0
+mtMet+F         -8699256.160 17398556.320 -        0 17398556.320 -        0 17398833.219 -        0
+HIVb+F          -8704779.904 17409603.808 -        0 17409603.808 -        0 17409880.707 -        0
+cpREV+F         -8704986.135 17410016.270 -        0 17410016.270 -        0 17410293.169 -        0
+mtInv+F         -8705452.417 17410948.834 -        0 17410948.834 -        0 17411225.733 -        0
+Blosum62+F      -8729144.174 17458332.348 -        0 17458332.348 -        0 17458609.247 -        0
+mtVer+F         -8740072.653 17480189.306 -        0 17480189.306 -        0 17480466.205 -        0
+FLU+F           -8766901.120 17533846.240 -        0 17533846.240 -        0 17534123.139 -        0
+mtREV+F         -8773476.387 17546996.774 -        0 17546996.774 -        0 17547273.673 -        0
+mtZOA+F         -8786172.590 17572389.180 -        0 17572389.180 -        0 17572666.079 -        0
+DCMut+F         -8830100.515 17660245.030 -        0 17660245.030 -        0 17660521.929 -        0
+Dayhoff+F       -8830107.890 17660259.780 -        0 17660259.780 -        0 17660536.679 -        0
+HIVw+F          -8833477.730 17666999.460 -        0 17666999.460 -        0 17667276.359 -        0
+mtART+F         -8886712.473 17773468.946 -        0 17773468.946 -        0 17773745.845 -        0
+mtMAM+F         -8903244.246 17806532.492 -        0 17806532.492 -        0 17806809.391 -        0
+Q.mammal        -8904125.188 17808256.376 -        0 17808256.376 -        0 17808294.135 -        0
+Q.bird          -8906416.787 17812839.574 -        0 17812839.574 -        0 17812877.333 -        0
+JTT             -8937362.374 17874730.748 -        0 17874730.748 -        0 17874768.507 -        0
+JTTDCMut        -8938750.578 17877507.156 -        0 17877507.156 -        0 17877544.915 -        0
+HIVb            -8958222.565 17916451.130 -        0 17916451.130 -        0 17916488.889 -        0
+rtREV           -8961705.088 17923416.176 -        0 17923416.176 -        0 17923453.935 -        0
+VT              -8966645.053 17933296.106 -        0 17933296.106 -        0 17933333.865 -        0
+Q.plant         -8993232.220 17986470.440 -        0 17986470.440 -        0 17986508.199 -        0
+WAG             -8995199.364 17990404.728 -        0 17990404.728 -        0 17990442.487 -        0
+LG              -8998333.013 17996672.026 -        0 17996672.026 -        0 17996709.785 -        0
+LG+I            -8998333.013 17996674.026 -        0 17996674.026 -        0 17996724.371 -        0
+LG+G4           -8998333.300 17996674.600 -        0 17996674.600 -        0 17996724.945 -        0
+LG+R2           -8998342.724 17996695.448 -        0 17996695.448 -        0 17996758.380 -        0
+LG+R3           -8998339.250 17996692.500 -        0 17996692.500 -        0 17996780.604 -        0
+LG+I+G4         -8998635.928 17997281.856 -        0 17997281.856 -        0 17997344.788 -        0
+Q.pfam          -9001312.984 18002631.968 -        0 18002631.968 -        0 18002669.727 -        0
+PMB             -9075993.288 18151992.576 -        0 18151992.576 -        0 18152030.335 -        0
+Q.insect        -9076230.816 18152467.632 -        0 18152467.632 -        0 18152505.391 -        0
+cpREV           -9095908.051 18191822.102 -        0 18191822.102 -        0 18191859.861 -        0
+Dayhoff         -9101696.616 18203399.232 -        0 18203399.232 -        0 18203436.991 -        0
+Blosum62        -9101757.144 18203520.288 -        0 18203520.288 -        0 18203558.047 -        0
+DCMut           -9102347.679 18204701.358 -        0 18204701.358 -        0 18204739.117 -        0
+Q.yeast         -9114117.567 18228241.134 -        0 18228241.134 -        0 18228278.893 -        0
+FLU             -9117275.686 18234557.372 -        0 18234557.372 -        0 18234595.131 -        0
+HIVw            -9168617.041 18337240.082 -        0 18337240.082 -        0 18337277.841 -        0
+mtREV           -9999513.004 19999032.008 -        0 19999032.008 -        0 19999069.767 -        0
+mtZOA           -10000924.350 20001854.700 -        0 20001854.700 -        0 20001892.459 -        0
+mtMet           -10008713.360 20017432.720 -        0 20017432.720 -        0 20017470.479 -        0
+mtVer           -10038121.840 20076249.680 -        0 20076249.680 -        0 20076287.439 -        0
+mtInv           -10141222.320 20282450.640 -        0 20282450.640 -        0 20282488.399 -        0
+mtART           -10197736.870 20395479.740 -        0 20395479.740 -        0 20395517.499 -        0
+mtMAM           -10200744.590 20401495.180 -        0 20401495.180 -        0 20401532.939 -        0
+
+AIC, w-AIC   : Akaike information criterion scores and weights.
+AICc, w-AICc : Corrected AIC scores and weights.
+BIC, w-BIC   : Bayesian information criterion scores and weights.
+
+Plus signs denote the 95% confidence sets.
+Minus signs denote significant exclusion.
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: Q.mammal+F
+
+State frequencies: (empirical counts from alignment)
+
+  pi(A) = 0.0499
+  pi(R) = 0.0584
+  pi(N) = 0.0413
+  pi(D) = 0.0556
+  pi(C) = 0.0214
+  pi(Q) = 0.0769
+  pi(E) = 0.1510
+  pi(G) = 0.1040
+  pi(H) = 0.0242
+  pi(I) = 0.0242
+  pi(L) = 0.0556
+  pi(K) = 0.1111
+  pi(M) = 0.0100
+  pi(F) = 0.0128
+  pi(P) = 0.0655
+  pi(S) = 0.0627
+  pi(T) = 0.0228
+  pi(W) = 0.0114
+  pi(Y) = 0.0114
+  pi(V) = 0.0299
+
+Model of rate heterogeneity: Uniform
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -8619521.6869 (s.e. 3472.5359)
+Unconstrained log-likelihood (without tree): -8721366.1205
+Number of free parameters (#branches + #model parameters): 22
+Akaike information criterion (AIC) score: 17239087.3738
+Corrected Akaike information criterion (AICc) score: 17239087.3743
+Bayesian information criterion (BIC) score: 17239364.2727
+
+Total tree length (sum of branch lengths): 0.2676
+Sum of internal branch lengths: 0.0000 (0.0000% of tree length)
+
+NOTE: Tree is UNROOTED although outgroup taxon 'Takin' is drawn at root
+Numbers in parentheses are SH-aLRT support (%)
+
++-----------------------------------------------------------Takin
+|
++----------------------------------------------Buffalo
+|
++-----------------------------------------------------Yak
+
+Tree in newick format:
+
+(Takin:0.0990284178,Buffalo:0.0782300351,Yak:0.0902994887);
+
+TIME STAMP
+----------
+
+Date and time: Thu Apr 10 22:59:57 2025
+Total CPU time used: 5.686403 seconds (0h:0m:5s)
+Total wall-clock time used: 2.74612341 seconds (0h:0m:2s)
+

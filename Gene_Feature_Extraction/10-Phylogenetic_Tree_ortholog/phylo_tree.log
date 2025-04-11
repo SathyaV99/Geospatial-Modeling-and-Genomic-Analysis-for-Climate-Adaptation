@@ -1,0 +1,230 @@
+IQ-TREE multicore version 2.1.4-beta COVID-edition for Linux 64-bit built Jun 24 2021
+Developed by Bui Quang Minh, James Barbetti, Nguyen Lam Tung,
+Olga Chernomor, Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    Sathya (AVX2, FMA3, 13 GB RAM)
+Command: iqtree -s /home/sathya/core_orthologs_supermatrix.fasta -m MFP -bb 1000 -alrt 1000 -nt AUTO -pre phylo_tree
+Seed:    289266 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Thu Apr 10 22:55:27 2025
+Kernel:  AVX+FMA - auto-detect threads (16 CPU cores detected)
+
+Reading alignment file /home/sathya/core_orthologs_supermatrix.fasta ... Fasta format detected
+Alignment most likely contains protein sequences
+WARNING: 16500 sites contain only gaps or ambiguous characters.
+Alignment has 3 sequences with 2161500 columns, 104 distinct patterns
+0 parsimony-informative, 445500 singleton sites, 1716000 constant sites
+         Gap/Ambiguity  Composition  p-value
+   1  Takin     17.94%    failed      0.00%
+   2  Buffalo    7.63%    failed      0.00%
+   3  Yak        6.49%    failed      0.00%
+****  TOTAL     10.69%  3 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: minimal branch length is reduced to 0.000000046264 for long alignment
+
+NOTE: Restoring information from model checkpoint file phylo_tree.model.gz
+
+CHECKPOINT: Initial tree restored
+Measuring multi-threading efficiency up to 16 CPU cores
+Increase to 10 rounds for branch lengths
+1079 trees examined
+Threads: 1 / Time: 16.007 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -9027162
+Threads: 2 / Time: 1.211 sec / Speedup: 13.213 / Efficiency: 661% / LogL: -9027162
+Threads: 3 / Time: 1.021 sec / Speedup: 15.682 / Efficiency: 523% / LogL: -9027162
+Threads: 4 / Time: 0.966 sec / Speedup: 16.563 / Efficiency: 414% / LogL: -9027162
+Threads: 5 / Time: 0.859 sec / Speedup: 18.638 / Efficiency: 373% / LogL: -9027162
+Threads: 6 / Time: 0.828 sec / Speedup: 19.322 / Efficiency: 322% / LogL: -9027162
+Threads: 7 / Time: 0.839 sec / Speedup: 19.080 / Efficiency: 273% / LogL: -9027162
+Threads: 8 / Time: 0.837 sec / Speedup: 19.125 / Efficiency: 239% / LogL: -9027162
+Threads: 9 / Time: 0.843 sec / Speedup: 18.998 / Efficiency: 211% / LogL: -9027162
+Threads: 10 / Time: 0.831 sec / Speedup: 19.261 / Efficiency: 193% / LogL: -9027162
+Threads: 11 / Time: 0.848 sec / Speedup: 18.883 / Efficiency: 172% / LogL: -9027162
+Threads: 12 / Time: 0.896 sec / Speedup: 17.858 / Efficiency: 149% / LogL: -9027162
+Threads: 13 / Time: 0.873 sec / Speedup: 18.329 / Efficiency: 141% / LogL: -9027162
+WARNING: 14 threads for alignment length 104 will slow down analysis
+Threads: 14 / Time: 0.871 sec / Speedup: 18.368 / Efficiency: 131% / LogL: -9027162
+WARNING: 15 threads for alignment length 104 will slow down analysis
+Threads: 15 / Time: 0.878 sec / Speedup: 18.240 / Efficiency: 122% / LogL: -9027162
+WARNING: 16 threads for alignment length 104 will slow down analysis
+Threads: 16 / Time: 0.896 sec / Speedup: 17.869 / Efficiency: 112% / LogL: -9027162
+BEST NUMBER OF THREADS: 5
+
+Perform fast likelihood tree search using LG+I+G model...
+Estimate model parameters (epsilon = 5.000)
+Perform nearest neighbor interchange...
+Estimate model parameters (epsilon = 1.000)
+1. Initial log-likelihood: -8999406.979
+2. Current log-likelihood: -8999396.124
+3. Current log-likelihood: -8999385.454
+4. Current log-likelihood: -8999374.964
+5. Current log-likelihood: -8999364.650
+6. Current log-likelihood: -8999354.508
+7. Current log-likelihood: -8999344.535
+8. Current log-likelihood: -8999334.725
+9. Current log-likelihood: -8999325.075
+10. Current log-likelihood: -8999315.582
+11. Current log-likelihood: -8999306.241
+12. Current log-likelihood: -8999297.050
+13. Current log-likelihood: -8999288.004
+14. Current log-likelihood: -8999279.101
+15. Current log-likelihood: -8999270.338
+16. Current log-likelihood: -8999261.711
+17. Current log-likelihood: -8999253.217
+18. Current log-likelihood: -8999244.853
+19. Current log-likelihood: -8999236.617
+20. Current log-likelihood: -8999228.506
+21. Current log-likelihood: -8999220.517
+22. Current log-likelihood: -8999212.647
+23. Current log-likelihood: -8999204.895
+24. Current log-likelihood: -8999197.257
+25. Current log-likelihood: -8999189.731
+26. Current log-likelihood: -8999182.314
+27. Current log-likelihood: -8999175.005
+28. Current log-likelihood: -8999167.802
+29. Current log-likelihood: -8999160.701
+30. Current log-likelihood: -8999153.702
+31. Current log-likelihood: -8999146.802
+32. Current log-likelihood: -8999139.998
+33. Current log-likelihood: -8999133.290
+34. Current log-likelihood: -8999126.675
+35. Current log-likelihood: -8999120.151
+36. Current log-likelihood: -8999113.717
+37. Current log-likelihood: -8999107.371
+38. Current log-likelihood: -8999101.111
+39. Current log-likelihood: -8999094.935
+40. Current log-likelihood: -8999088.842
+41. Current log-likelihood: -8999082.831
+42. Current log-likelihood: -8999076.899
+43. Current log-likelihood: -8999071.045
+44. Current log-likelihood: -8999065.269
+45. Current log-likelihood: -8999059.567
+46. Current log-likelihood: -8999053.940
+47. Current log-likelihood: -8999048.385
+48. Current log-likelihood: -8999042.902
+49. Current log-likelihood: -8999037.489
+50. Current log-likelihood: -8999032.144
+51. Current log-likelihood: -8999026.867
+52. Current log-likelihood: -8999021.656
+53. Current log-likelihood: -8999016.510
+54. Current log-likelihood: -8999011.429
+55. Current log-likelihood: -8999006.410
+56. Current log-likelihood: -8999001.453
+57. Current log-likelihood: -8998996.556
+58. Current log-likelihood: -8998991.719
+59. Current log-likelihood: -8998986.941
+60. Current log-likelihood: -8998982.221
+61. Current log-likelihood: -8998977.557
+62. Current log-likelihood: -8998972.948
+63. Current log-likelihood: -8998968.395
+64. Current log-likelihood: -8998963.895
+65. Current log-likelihood: -8998959.448
+66. Current log-likelihood: -8998955.054
+67. Current log-likelihood: -8998950.710
+68. Current log-likelihood: -8998946.417
+69. Current log-likelihood: -8998942.173
+70. Current log-likelihood: -8998937.978
+71. Current log-likelihood: -8998933.831
+72. Current log-likelihood: -8998929.731
+73. Current log-likelihood: -8998925.677
+74. Current log-likelihood: -8998921.669
+75. Current log-likelihood: -8998917.706
+76. Current log-likelihood: -8998913.788
+77. Current log-likelihood: -8998909.913
+78. Current log-likelihood: -8998906.080
+79. Current log-likelihood: -8998902.290
+80. Current log-likelihood: -8998898.541
+81. Current log-likelihood: -8998894.834
+82. Current log-likelihood: -8998891.166
+83. Current log-likelihood: -8998887.538
+84. Current log-likelihood: -8998883.949
+85. Current log-likelihood: -8998880.399
+86. Current log-likelihood: -8998876.886
+87. Current log-likelihood: -8998873.411
+88. Current log-likelihood: -8998869.973
+89. Current log-likelihood: -8998866.570
+90. Current log-likelihood: -8998863.204
+91. Current log-likelihood: -8998859.872
+92. Current log-likelihood: -8998856.575
+93. Current log-likelihood: -8998853.313
+94. Current log-likelihood: -8998850.083
+95. Current log-likelihood: -8998846.887
+96. Current log-likelihood: -8998843.724
+97. Current log-likelihood: -8998840.593
+98. Current log-likelihood: -8998837.493
+99. Current log-likelihood: -8998834.425
+Optimal log-likelihood: -8998834.425
+Proportion of invariable sites: 0.139
+Gamma shape alpha: 998.436
+Parameters optimization took 99 rounds (0.123 sec)
+Time for fast ML tree search: 0.224 seconds
+
+NOTE: ModelFinder requires 1 MB RAM!
+ModelFinder will test up to 702 protein models (sample size: 2161500) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+  1  LG            8998333.013  3   17996672.025 17996672.025 17996709.784
+  2  LG+I          8998333.013  4   17996674.027 17996674.027 17996724.372
+  3  LG+G4         8998333.300  4   17996674.599 17996674.599 17996724.944
+  4  LG+I+G4       8998635.928  5   17997281.856 17997281.856 17997344.788
+  5  LG+R2         8998342.724  5   17996695.447 17996695.447 17996758.379
+  6  LG+R3         8998339.259  7   17996692.517 17996692.517 17996780.622
+ 14  LG+F          8677704.801  22  17355453.601 17355453.602 17355730.500
+ 27  WAG           8995199.364  3   17990404.728 17990404.728 17990442.487
+ 40  WAG+F         8688661.819  22  17377367.639 17377367.639 17377644.538
+ 53  JTT           8937362.374  3   17874730.749 17874730.749 17874768.508
+ 66  JTT+F         8642142.421  22  17284328.841 17284328.842 17284605.740
+ 79  Q.pfam        9001312.984  3   18002631.968 18002631.968 18002669.727
+ 92  Q.pfam+F      8654871.949  22  17309787.898 17309787.898 17310064.797
+105  Q.bird        8906416.787  3   17812839.574 17812839.574 17812877.333
+118  Q.bird+F      8638796.372  22  17277636.744 17277636.745 17277913.643
+131  Q.mammal      8904125.188  3   17808256.376 17808256.376 17808294.135
+144  Q.mammal+F    8619521.687  22  17239087.374 17239087.374 17239364.273
+157  Q.insect      9076230.816  3   18152467.632 18152467.632 18152505.391
+170  Q.insect+F    8674986.212  22  17350016.424 17350016.425 17350293.323
+183  Q.plant       8993232.220  3   17986470.440 17986470.440 17986508.199
+196  Q.plant+F     8637350.514  22  17274745.029 17274745.029 17275021.928
+209  Q.yeast       9114117.567  3   18228241.134 18228241.134 18228278.893
+222  Q.yeast+F     8673620.040  22  17347284.080 17347284.080 17347560.979
+235  JTTDCMut      8938750.578  3   17877507.156 17877507.156 17877544.915
+248  JTTDCMut+F    8648864.469  22  17297772.938 17297772.939 17298049.837
+261  DCMut         9102347.679  3   18204701.358 18204701.358 18204739.117
+274  DCMut+F       8830100.515  22  17660245.030 17660245.031 17660521.929
+287  VT            8966645.053  3   17933296.107 17933296.107 17933333.866
+300  VT+F          8640371.619  22  17280787.238 17280787.239 17281064.137
+313  PMB           9075993.288  3   18151992.576 18151992.576 18152030.334
+326  PMB+F         8696944.658  22  17393933.316 17393933.317 17394210.215
+339  Blosum62      9101757.144  3   18203520.288 18203520.288 18203558.047
+352  Blosum62+F    8729144.174  22  17458332.348 17458332.348 17458609.247
+365  Dayhoff       9101696.616  3   18203399.232 18203399.232 18203436.991
+378  Dayhoff+F     8830107.890  22  17660259.781 17660259.781 17660536.679
+391  mtREV         9999513.004  3   19999032.007 19999032.007 19999069.766
+404  mtREV+F       8773476.387  22  17546996.775 17546996.775 17547273.674
+417  mtART         10197736.873 3   20395479.746 20395479.746 20395517.504
+430  mtART+F       8886712.473  22  17773468.946 17773468.947 17773745.845
+443  mtZOA         10000924.351 3   20001854.702 20001854.702 20001892.461
+456  mtZOA+F       8786172.590  22  17572389.180 17572389.181 17572666.079
+469  mtMet         10008713.360 3   20017432.719 20017432.719 20017470.478
+482  mtMet+F       8699256.160  22  17398556.319 17398556.320 17398833.218
+495  mtVer         10038121.836 3   20076249.672 20076249.672 20076287.431
+508  mtVer+F       8740072.653  22  17480189.305 17480189.306 17480466.204
+521  mtInv         10141222.323 3   20282450.646 20282450.646 20282488.405
+534  mtInv+F       8705452.417  22  17410948.833 17410948.834 17411225.732
+547  mtMAM         10200744.591 3   20401495.181 20401495.181 20401532.940
+560  mtMAM+F       8903244.246  22  17806532.492 17806532.492 17806809.391
+573  HIVb          8958222.565  3   17916451.130 17916451.130 17916488.889
+586  HIVb+F        8704779.904  22  17409603.808 17409603.809 17409880.707
+599  HIVw          9168617.041  3   18337240.083 18337240.083 18337277.842
+612  HIVw+F        8833477.730  22  17666999.460 17666999.460 17667276.359
+625  FLU           9117275.686  3   18234557.371 18234557.371 18234595.130
+638  FLU+F         8766901.120  22  17533846.241 17533846.241 17534123.139
+651  rtREV         8961705.088  3   17923416.176 17923416.176 17923453.935
+664  rtREV+F       8668790.426  22  17337624.852 17337624.853 17337901.751
+677  cpREV         9095908.051  3   18191822.102 18191822.102 18191859.861
+690  cpREV+F       8704986.135  22  17410016.270 17410016.270 17410293.169
+Akaike Information Criterion:           Q.mammal+F
+Corrected Akaike Information Criterion: Q.mammal+F
+Bayesian Information Criterion:         Q.mammal+F
+Best-fit model: Q.mammal+F chosen according to BIC
+
+All model information printed to phylo_tree.model.gz
+CPU time for ModelFinder: 131.999 seconds (0h:2m:11s)
+Wall-clock time for ModelFinder: 30.614 seconds (0h:0m:30s)
+Generating 1000 samples for ultrafast bootstrap (seed: 289266)...
+ERROR: It makes no sense to perform bootstrap with less than 4 sequences.
