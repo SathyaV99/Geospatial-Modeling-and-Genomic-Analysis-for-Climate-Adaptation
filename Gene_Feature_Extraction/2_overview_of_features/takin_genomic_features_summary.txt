@@ -1,4 +1,4 @@
-📊 Summary Report for Takin
+Summary Report for Takin
 ============================================================
 {'feature_type_counts': {'CDS': 29116,
                          'mRNA': 28964,

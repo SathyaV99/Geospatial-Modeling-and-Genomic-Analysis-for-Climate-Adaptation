@@ -26,7 +26,6 @@ def plot_gene_distribution_barplot(summary_dict, output_path):
     plt.close()
     print(f"[✓] Barplot with % saved to: {output_path}")
 
-# === Example Usage ===
 summary = {
     "Shared (All 3)": 17822,
     "Unique to Wild Yak": 3542,

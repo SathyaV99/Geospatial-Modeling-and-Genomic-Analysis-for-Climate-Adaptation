@@ -17,17 +17,17 @@ def extract_genes_from_csv(csv_path, feature_types=["CDS", "gene", "mRNA"], save
     # Filter gene-related features
     gene_df = df[df['Feature_Type'].isin(feature_types)].copy()
 
-    # Optional save
+
     if save_as:
         gene_df.to_csv(save_as, index=False)
         print(f"[✓] Extracted {len(gene_df)} {feature_types} features from {csv_path} to {save_as}")
 
     return gene_df
 
-# === Paths to CSV files (Change these if your path differs) ===
+# MAIN PATH
 base_path = r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Wild-Yak--Takin--and-High-Altitude-Bovids---Genomic-and-Geographic-Adaptations - NONGITHUB\Gene_Feature_Extraction\1_genomic_feature_extraction"
 
-# === Extracting CDS features for each species ===
+# CDS FEATURES
 wildyak_path = f"{base_path}\\wildyak_genomic_features.csv"
 takin_path = f"{base_path}\\takin_genomic_features.csv"
 waterbuffalo_path = f"{base_path}\\waterbuffalo_genomic_features.csv"

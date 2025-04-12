@@ -4,7 +4,7 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 
-# Define the function for compareCluster enrichment
+# function for compareCluster
 run_comparecluster_enrichment <- function(file_paths, species_names, output_dir = "compareCluster_GO") {
   if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
   
@@ -25,14 +25,13 @@ run_comparecluster_enrichment <- function(file_paths, species_names, output_dir 
   }
   
   if (nrow(all_mappings) == 0) {
-    message("❌ No GO terms found in any species.")
+    message("X No GO terms found in any species.")
     return(NULL)
   }
   
   # Create a list of protein IDs per species
   gene_lists <- split(all_mappings$Protein, all_mappings$Species)
   
-  # Run compareCluster enrichment using enricher on GO terms
   cc <- compareCluster(
     geneCluster = gene_lists,
     fun = "enricher",
@@ -43,25 +42,25 @@ run_comparecluster_enrichment <- function(file_paths, species_names, output_dir 
   # Save enrichment results as CSV
   result_file <- file.path(output_dir, "GO_compareCluster.csv")
   write.csv(as.data.frame(cc), result_file, row.names = FALSE)
-  message("✅ Saved enrichment table to: ", result_file)
+  message(":D Saved enrichment table to: ", result_file)
   
   # Generate and save dotplot of enrichment
   plot <- dotplot(cc, showCategory = 20) + ggtitle("GO Enrichment – All Species")
   plot_file <- file.path(output_dir, "GO_compareCluster_dotplot.png")
   ggsave(plot_file, plot, width = 14, height = 8, dpi = 300)
-  message("✅ Saved dotplot to: ", plot_file)
+  message(":D  Saved dotplot to: ", plot_file)
   
   print(plot)
 }
 
-# File paths (using forward slashes)
+# File paths ==
 file_paths <- c(
   "D:/Documents/Python Stuff - Programming/AMOD Big Data research project/Wild-Yak--Takin--and-High-Altitude-Bovids---Genomic-and-Geographic-Adaptations/Gene_Feature_Extraction/4_protein_translation/wildyak_full_interpro.tsv",
   "D:/Documents/Python Stuff - Programming/AMOD Big Data research project/Wild-Yak--Takin--and-High-Altitude-Bovids---Genomic-and-Geographic-Adaptations/Gene_Feature_Extraction/4_protein_translation/takin_interpro.tsv",
   "D:/Documents/Python Stuff - Programming/AMOD Big Data research project/Wild-Yak--Takin--and-High-Altitude-Bovids---Genomic-and-Geographic-Adaptations/Gene_Feature_Extraction/4_protein_translation/buffalo_interpro.tsv"
 )
 
-# Species labels
+# LABELS
 species_names <- c("WildYak", "Takin", "WaterBuffalo")
 
 # Run the enrichment function

@@ -3,10 +3,9 @@ import json
 import pandas as pd
 
 # ---------------------------
-# Update these paths as needed:
 csv_path = r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Genomic_and_Geographic_analysis_of_high_altitude_bovids- NONGITHUB\Gene_Feature_Extraction\6_GOandKegg_Pathways\compareCluster_GO\GO_compareCluster.csv"
-uniprot_json_path = r"uniprot_results.json"  # Make sure this file is in the working directory or provide full path.
-go_json_path = r"go_results.json"            # Make sure this file is in the working directory or provide full path.
+uniprot_json_path = r"uniprot_results.json" 
+go_json_path = r"go_results.json"           
 output_csv_path = r"merged_enriched_GO.csv"
 # ---------------------------
 
@@ -52,7 +51,7 @@ def summarize_uniprot_info(gene_list):
         if "error" in entry:
             summaries.append(f"{gene}: ERROR")
         else:
-            # Extract recommended protein name if available.
+            # Extract recommended protein name 
             try:
                 protein_name = (
                     entry.get("proteinDescription", {})
@@ -83,7 +82,7 @@ for idx, row in df.iterrows():
     go_definitions.append(definition)
     go_synonyms.append(synonyms)
     
-    # Process gene IDs from the "geneID" column (assumed to be "/" separated).
+    # Process gene IDs from the "geneID" column 
     raw_gene_ids = str(row["geneID"])
     gene_list = raw_gene_ids.split("/")
     up_summary = summarize_uniprot_info(gene_list)
@@ -95,6 +94,6 @@ df["GO_Definition"] = go_definitions
 df["GO_Synonyms"] = go_synonyms
 df["UniProt_Summary"] = uniprot_summaries
 
-# Write the enriched DataFrame to a new CSV file.
+# DF TO CSV
 df.to_csv(output_csv_path, index=False)
 print(f"Enriched CSV file saved as: {output_csv_path}")

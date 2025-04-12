@@ -34,7 +34,7 @@ def extract_features_from_gbff(gbff_path, output_csv=None):
 
     df = pd.DataFrame(features)
 
-    # Auto-generate output CSV name if not provided
+    # Auto-generate output CSV name
     if not output_csv:
         base = os.path.splitext(os.path.basename(gbff_path))[0]
         output_csv = f"{base}_features.csv"

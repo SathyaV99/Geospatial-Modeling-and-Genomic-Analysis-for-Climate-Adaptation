@@ -50,14 +50,14 @@ def analyze_gene_families(
             comparison_data[species] = counts
 
         except Exception as e:
-            print(f"❌ Error processing {species}: {e}")
+            print(f"X Error processing {species}: {e}")
 
     result_df = pd.DataFrame(comparison_data).fillna(0).astype(int)
 
     # Save keyword-level CSV and heatmap
     keyword_csv = os.path.join(output_dir, output_csv)
     result_df.to_csv(keyword_csv)
-    print(f"✅ Saved keyword comparison to: {keyword_csv}")
+    print(f":D Saved keyword comparison to: {keyword_csv}")
 
     plt.figure(figsize=(40, 20))
     sns.heatmap(result_df, annot=True, cmap="YlGnBu", fmt="d", cbar_kws={'label': 'Count'})
@@ -67,7 +67,7 @@ def analyze_gene_families(
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, output_png), dpi=300)
     plt.close()
-    print(f"✅ Saved keyword-level heatmap to: {output_png}")
+    print(f":D Saved keyword-level heatmap to: {output_png}")
 
     # Grouped analysis by shared function
     if keyword_groups:
@@ -81,7 +81,7 @@ def analyze_gene_families(
         # Save grouped CSV and heatmap
         grouped_csv_path = os.path.join(output_dir, grouped_csv)
         grouped_df.to_csv(grouped_csv_path)
-        print(f"✅ Saved grouped function summary to: {grouped_csv_path}")
+        print(f":D Saved grouped function summary to: {grouped_csv_path}")
 
         plt.figure(figsize=(12, 8))
         sns.heatmap(grouped_df, annot=True, cmap="YlGnBu", fmt="d", cbar_kws={'label': 'Count'})
@@ -91,11 +91,11 @@ def analyze_gene_families(
         plt.tight_layout()
         plt.savefig(os.path.join(output_dir, grouped_png), dpi=300)
         plt.close()
-        print(f"✅ Saved grouped function heatmap to: {grouped_png}")
+        print(f":D Saved grouped function heatmap to: {grouped_png}")
 
     return result_df
 
-# ✅ Keyword list
+# Keyword list
 keywords = [
     # Original + GPCR family
     "kinase", "GPCR", "G protein-coupled", "7TM", "seven transmembrane", "zinc", "transport", "receptor",
@@ -116,7 +116,7 @@ keywords = [
     "growth factor", "morphogen", "developmental", "Wnt", "BMP", "Notch"
 ]
 
-# ✅ Group keywords into biological functions
+# Group keywords into biological functions
 keyword_groups = {
     "Energy metabolism": ["ATPase", "cytochrome", "dehydrogenase", "mitochondrial"],
     "Protein quality control": ["ubiquitin", "proteasome", "heat shock", "oxidase"],
@@ -126,14 +126,14 @@ keyword_groups = {
     "Growth & development": ["Notch", "Wnt", "BMP", "growth factor"]
 }
 
-# ✅ CSV input
+# CSV input
 csv_files = {
     "Takin": r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Wild-Yak--Takin--and-High-Altitude-Bovids---Genomic-and-Geographic-Adaptations\Gene_Feature_Extraction\1_genomic_feature_extraction\takin_genomic_features.csv",
     "Wild Yak": r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Wild-Yak--Takin--and-High-Altitude-Bovids---Genomic-and-Geographic-Adaptations\Gene_Feature_Extraction\1_genomic_feature_extraction\wildyak_genomic_features.csv",
     "Water Buffalo": r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Wild-Yak--Takin--and-High-Altitude-Bovids---Genomic-and-Geographic-Adaptations\Gene_Feature_Extraction\1_genomic_feature_extraction\waterbuffalo_genomic_features.csv"
 }
 
-# ✅ Run the analysis
+# Run the analysis
 analyze_gene_families(
     csv_paths_dict=csv_files,
     keyword_list=keywords,

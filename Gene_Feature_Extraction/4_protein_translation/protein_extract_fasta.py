@@ -13,7 +13,7 @@ def extract_subset_fasta(csv_path, fasta_out, n=5000):
                 if count >= n:
                     break
 
-    print(f"✅ Saved {count} proteins to: {fasta_out}")
+    print(f":D Saved {count} proteins to: {fasta_out}")
 
 
 extract_subset_fasta(

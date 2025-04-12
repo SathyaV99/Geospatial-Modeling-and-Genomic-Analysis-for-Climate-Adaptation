@@ -29,12 +29,8 @@ if __name__ == '__main__':
     csv_path = r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Genomic_and_Geographic_analysis_of_high_altitude_bovids- NONGITHUB\Gene_Feature_Extraction\6_GOandKegg_Pathways\compareCluster_GO\GO_compareCluster.csv"
     
     # Read the CSV file into a DataFrame.
-    # Adjust the separator (sep) if necessary; here we try the default comma.
     df = pd.read_csv(csv_path)
     
-    # For debugging, you can print the first few rows:
-    # print(df.head())
-
     # Extract unique gene IDs from the 'geneID' column.
     gene_ids = set()
     for ids in df['geneID'].dropna():
@@ -44,10 +40,10 @@ if __name__ == '__main__':
     print(f"Found {len(gene_ids)} unique gene IDs.")
 
     # Extract unique GO IDs from the 'ID' column.
-    # The ID column is in the format "GO:0004984(PANTHER)"; we remove the "(PANTHER)" part.
+
     go_ids = set()
     for go in df['ID'].dropna():
-        go_id = go.split('(')[0].strip()  # "GO:0004984"
+        go_id = go.split('(')[0].strip()
         go_ids.add(go_id)
     go_ids = list(go_ids)
     print(f"Found {len(go_ids)} unique GO term IDs.")
@@ -56,23 +52,23 @@ if __name__ == '__main__':
     uniprot_results = {}
     go_results = {}
 
-    # Use ThreadPoolExecutor to fetch API data concurrently
-    max_workers = 20  # Adjust the number of threads as needed
+    #FETCH API CALLS
+    max_workers = 20 
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        # Submit UniProt API calls concurrently for gene IDs
+        #  UniProt API calls concurrently for gene IDs
         future_to_gene = {executor.submit(fetch_uniprot_data, gene_id): gene_id for gene_id in gene_ids}
         for future in as_completed(future_to_gene):
             gene_id, data = future.result()
             uniprot_results[gene_id] = data
 
-        # Submit QuickGO API calls concurrently for GO term IDs
+        # QuickGO API calls concurrently for GO term IDs
         future_to_go = {executor.submit(fetch_go_term, go_id): go_id for go_id in go_ids}
         for future in as_completed(future_to_go):
             go_id, data = future.result()
             go_results[go_id] = data
 
-    # Optionally, save the results to JSON files for later examination
+    # save the results to JSON files for later examination
     with open("uniprot_results.json", "w") as f:
         json.dump(uniprot_results, f, indent=2)
     with open("go_results.json", "w") as f:

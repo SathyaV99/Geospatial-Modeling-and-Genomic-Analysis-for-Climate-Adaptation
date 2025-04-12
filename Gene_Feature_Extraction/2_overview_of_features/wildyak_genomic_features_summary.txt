@@ -1,4 +1,4 @@
-📊 Summary Report for WildYak
+Summary Report for WildYak
 ============================================================
 {'feature_type_counts': {'CDS': 45653,
                          'mRNA': 45604,

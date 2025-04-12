@@ -31,10 +31,10 @@ def extract_protein_fastas(csv_paths_dict, output_dir="protein_fastas"):
                         f.write(f">{protein_id}\n{sequence}\n")
                         count += 1
 
-            print(f"✅ Saved {count} protein sequences for {species} → {fasta_file}")
+            print(f":D Saved {count} protein sequences for {species} → {fasta_file}")
 
         except Exception as e:
-            print(f"❌ Error processing {species}: {e}")
+            print(f"X Error processing {species}: {e}")
 
 csv_files = {
     "Takin": r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Wild-Yak--Takin--and-High-Altitude-Bovids---Genomic-and-Geographic-Adaptations\Gene_Feature_Extraction\1_genomic_feature_extraction\takin_genomic_features.csv",

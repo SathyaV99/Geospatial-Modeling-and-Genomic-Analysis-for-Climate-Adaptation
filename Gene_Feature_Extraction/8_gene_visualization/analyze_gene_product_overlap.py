@@ -46,7 +46,7 @@ def analyze_gene_product_overlap(wildyak_csv, takin_csv, buffalo_csv, output_dir
         "Only in Takin (not Buffalo)": len(only_takin),
     }
 
-    # --- Save combined gene product presence matrix ---
+    # ---  combined gene product presence matrix ---
     all_products = list(wildyak_set | takin_set | buffalo_set)
     matrix = pd.DataFrame({
         'Gene_Product': all_products,
@@ -98,17 +98,16 @@ def analyze_gene_product_overlap(wildyak_csv, takin_csv, buffalo_csv, output_dir
     print(f"[✓] Analysis complete! Files saved in: {output_dir}")
 
 
-# === Paths to CSV files ===
+# PATH TO CSV
 base_path = r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Genomic_and_Geographic_analysis_of_high_altitude_bovids- NONGITHUB\Gene_Feature_Extraction\7_Gene_extraction"
 
 wildyak_path = f"{base_path}\\wildyak_CDS.csv"
 takin_path = f"{base_path}\\takin_CDS.csv"
 waterbuffalo_path = f"{base_path}\\waterbuffalo_CDS.csv"
 
-# === Output folder for plots and CSVs ===
+# SAVE PLOT AND OTHER - OUTPUT
 output_path = r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Genomic_and_Geographic_analysis_of_high_altitude_bovids- NONGITHUB\Gene_Feature_Extraction\8_gene_visualization\gene_product_analysis_output"
 
-# === Run the analysis ===
 analyze_gene_product_overlap(
     wildyak_csv=wildyak_path,
     takin_csv=takin_path,

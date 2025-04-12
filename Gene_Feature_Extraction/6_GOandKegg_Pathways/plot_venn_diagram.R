@@ -4,10 +4,9 @@ library(dplyr)
 library(readr)
 
 plot_go_venn_diagram <- function(csv_path, output_path = "compareCluster_GO/GO_shared_venn.png") {
-  # Read the compareCluster result CSV
+  # Read the compareCluster 
   cc_df <- read_csv(csv_path, show_col_types = FALSE)
   
-  # Ensure required columns exist
   if (!all(c("Cluster", "ID") %in% colnames(cc_df))) {
     stop("CSV must contain 'Cluster' and 'ID' columns.")
   }

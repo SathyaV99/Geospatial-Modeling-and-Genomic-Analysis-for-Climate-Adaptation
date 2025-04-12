@@ -8,7 +8,7 @@ def compare_interpro_domains(tsv_files, output_dir="interpro_output", top_n=20):
     domain_counts = {}
 
     for species, path in tsv_files.items():
-        print(f"📂 Processing: {species}")
+        print(f"DATA Processing: {species}")
         try:
             df = pd.read_csv(path, sep="\t", header=None)
             df.columns = [
@@ -21,13 +21,13 @@ def compare_interpro_domains(tsv_files, output_dir="interpro_output", top_n=20):
             domain_counts[species] = top_domains
 
         except Exception as e:
-            print(f"❌ Error reading {species}: {e}")
+            print(f"X Error reading {species}: {e}")
 
     # Combine into one matrix
     if domain_counts:
         domain_df = pd.concat(domain_counts, axis=1).fillna(0).astype(int)
         domain_df.to_csv(os.path.join(output_dir, "interpro_domain_comparison.csv"))
-        print(f"✅ Saved CSV: interpro_domain_comparison.csv")
+        print(f":D Saved CSV: interpro_domain_comparison.csv")
 
         # Plot
         plt.figure(figsize=(15, 8))
@@ -38,9 +38,9 @@ def compare_interpro_domains(tsv_files, output_dir="interpro_output", top_n=20):
         plt.tight_layout()
         plt.savefig(os.path.join(output_dir, "interpro_domain_heatmap.png"))
         plt.close()
-        print(f"✅ Saved heatmap: interpro_domain_heatmap.png")
+        print(f":D Saved heatmap: interpro_domain_heatmap.png")
 
-# 🔧 Update with your real file paths
+# PATH
 tsv_files = {
     "Water Buffalo": r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Wild-Yak--Takin--and-High-Altitude-Bovids---Genomic-and-Geographic-Adaptations\Gene_Feature_Extraction\4_protein_translation\buffalo_interpro.tsv",
     "Wild Yak": r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Wild-Yak--Takin--and-High-Altitude-Bovids---Genomic-and-Geographic-Adaptations\Gene_Feature_Extraction\4_protein_translation\wildyak_full_interpro.tsv",

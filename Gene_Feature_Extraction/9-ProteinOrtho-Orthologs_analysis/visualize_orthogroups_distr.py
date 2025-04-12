@@ -62,11 +62,9 @@ def visualize_orthogroup_distributions(proteinortho_path, output_dir):
     plt.savefig(os.path.join(output_dir, "orthogroup_heatmap.png"))
     plt.close()
 
-    print("[✓] Venn diagram, barplot, and heatmap saved to:", output_dir)
+    print(":DVenn diagram, barplot, and heatmap saved to:", output_dir)
 
-# === Example Usage ===
 proteinortho_file = r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Genomic_and_Geographic_analysis_of_high_altitude_bovids- NONGITHUB\Gene_Feature_Extraction\9-ProteinOrtho-Orthologs_analysis\proteinortho\myproject.proteinortho.tsv"
 output_folder = r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Genomic_and_Geographic_analysis_of_high_altitude_bovids- NONGITHUB\Gene_Feature_Extraction\9-ProteinOrtho-Orthologs_analysis\orthogroup_visualization"
 
-# Run it
 visualize_orthogroup_distributions(proteinortho_file, output_folder)

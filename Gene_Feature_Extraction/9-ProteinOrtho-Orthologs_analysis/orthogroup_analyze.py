@@ -7,52 +7,26 @@ from sklearn.preprocessing import StandardScaler
 import os
 
 def load_and_prepare_proteinortho(tsv_path):
-    """
-    Loads the Proteinortho TSV file and renames columns to short species names.
-    
-    Assumes the file has no header or has a header we want to override.
-    Expected original order: [Orthogroup_ID, water_buffalo_proteins.fasta, wild_yak_proteins.fasta, takin_proteins.fasta]
-    
-    Returns:
-        DataFrame with columns: ["FamilyID", "water_buffalo", "wild_yak", "takin"]
-    """
-    # Read TSV with comment '#' to skip comments if present
+
+    # Read TSV with comment #
     df = pd.read_csv(tsv_path, sep="\t", header=None, comment="#")
     
-    # Define headers
     headers = ["FamilyID", "water_buffalo", "wild_yak", "takin"]
-    # If the file has exactly 4 columns then assign; otherwise, take first 4 columns.
     df = df.iloc[:, :4]
     df.columns = headers
     return df
 
 def create_presence_matrix(df):
-    """
-    Converts the proteinortho DataFrame into a binary presence/absence matrix.
-    
-    For each species column, a non-NA value is treated as “present” (1), and NA as (0).
-    
-    Returns:
-        DataFrame with columns: ["FamilyID", "water_buffalo", "wild_yak", "takin"]
-    """
+
     presence_df = df.copy()
     for col in ["water_buffalo", "wild_yak", "takin"]:
-        # Treat non-empty strings as present (1), else 0.
+        # 1 or 0
         presence_df[col] = presence_df[col].notna() & (presence_df[col] != "")
         presence_df[col] = presence_df[col].astype(int)
     return presence_df
 
 def summarize_orthogroups(presence_df):
-    """
-    Computes summary statistics for the orthogroup presence matrix.
-    
-    Returns:
-        A dictionary with counts:
-          - Total orthogroups
-          - Core (present in all species)
-          - Unique to each species
-          - Shared by exactly two species (for each pair)
-    """
+
     total = len(presence_df)
     core = len(presence_df[(presence_df["water_buffalo"]==1) & 
                             (presence_df["wild_yak"]==1) & 
@@ -67,7 +41,7 @@ def summarize_orthogroups(presence_df):
                                    (presence_df["wild_yak"]==0) & 
                                    (presence_df["takin"]==1)])
     
-    # Shared by exactly two species:
+    # Shared by 2 species:
     shared_buffalo_yak = len(presence_df[(presence_df["water_buffalo"]==1) & 
                                          (presence_df["wild_yak"]==1) & 
                                          (presence_df["takin"]==0)])
@@ -105,7 +79,7 @@ def plot_venn(presence_df, output_path):
     plt.tight_layout()
     plt.savefig(output_path)
     plt.close()
-    print(f"[✓] Venn diagram saved to: {output_path}")
+    print(f":D Venn diagram saved to: {output_path}")
 
 def plot_bar_summary(summary_dict, output_path):
     """
@@ -128,14 +102,13 @@ def plot_bar_summary(summary_dict, output_path):
     plt.tight_layout()
     plt.savefig(output_path)
     plt.close()
-    print(f"[✓] Barplot summary saved to: {output_path}")
+    print(f":D Barplot summary saved to: {output_path}")
 
 def plot_pca(presence_df, output_path):
     """
     Performs PCA on the presence/absence matrix and plots a 2D scatter plot.
     Each row is an orthogroup; though this matrix is binary, PCA helps visualize variance.
     """
-    # Use only the species columns
     X = presence_df[["water_buffalo", "wild_yak", "takin"]].values
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
@@ -152,18 +125,17 @@ def plot_pca(presence_df, output_path):
     plt.tight_layout()
     plt.savefig(output_path)
     plt.close()
-    print(f"[✓] PCA plot saved to: {output_path}")
+    print(f":D PCA plot saved to: {output_path}")
 
 if __name__ == "__main__":
-    # Set file paths (update these paths to your environment)
+    # FILE PATHS
     proteinortho_tsv = r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Genomic_and_Geographic_analysis_of_high_altitude_bovids- NONGITHUB\Gene_Feature_Extraction\9-ProteinOrtho-Orthologs_analysis\proteinortho\myproject.proteinortho.tsv"
     output_folder = r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Genomic_and_Geographic_analysis_of_high_altitude_bovids- NONGITHUB\Gene_Feature_Extraction\9-ProteinOrtho-Orthologs_analysis\orthogroup_visualization"
     os.makedirs(output_folder, exist_ok=True)
-    
-    # Load and prepare the proteinortho data
+
     df_ortho = load_and_prepare_proteinortho(proteinortho_tsv)
     
-    # Create a presence/absence matrix; here, any non-empty field is 1.
+    # Create a presence/absence matrix
     presence_df = create_presence_matrix(df_ortho)
     
     # Generate summary statistics
@@ -172,19 +144,19 @@ if __name__ == "__main__":
     for key, value in summary.items():
         print(f"{key}: {value}")
     
-    # Save the presence matrix
+    # SAVE MATRIX
     presence_matrix_path = os.path.join(output_folder, "orthogroup_presence_matrix.csv")
     presence_df.to_csv(presence_matrix_path, index=False)
     print(f"[✓] Presence matrix saved to: {presence_matrix_path}")
     
-    # Plot Venn diagram
+    # VENN DIAgram
     venn_output = os.path.join(output_folder, "venn_orthogroups.png")
     plot_venn(presence_df, venn_output)
     
-    # Plot bar summary
+    # summary
     bar_output = os.path.join(output_folder, "barplot_orthogroup_summary.png")
     plot_bar_summary(summary, bar_output)
     
-    # Plot PCA of the presence/absence matrix
+    # pca su
     pca_output = os.path.join(output_folder, "pca_orthogroup_presence.png")
     plot_pca(presence_df, pca_output)

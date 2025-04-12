@@ -1,4 +1,4 @@
-📊 Summary Report for WaterBuffalo
+Summary Report for WaterBuffalo
 ============================================================
 {'feature_type_counts': {'CDS': 64670,
                          'mRNA': 64365,

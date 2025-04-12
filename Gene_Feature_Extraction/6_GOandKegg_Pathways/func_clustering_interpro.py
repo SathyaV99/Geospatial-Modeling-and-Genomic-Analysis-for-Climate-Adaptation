@@ -20,7 +20,7 @@ def functional_clustering_interpro(csv_path, output_dir, n_clusters=4):
     # Load the data
     df = pd.read_csv(csv_path)
 
-    # Fill missing values with 0 (if any)
+    # Fill missing values with 0
     df.fillna(0, inplace=True)
 
     # Features = counts for each species (skip first column)
@@ -69,7 +69,7 @@ def functional_clustering_interpro(csv_path, output_dir, n_clusters=4):
 
     return df[['InterPro_Desc', 'Cluster']]
 
-# === Example usage ===
+#_---------------------------
 if __name__ == "__main__":
     csv_path = r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Genomic_and_Geographic_analysis_of_high_altitude_bovids- NONGITHUB\Gene_Feature_Extraction\6_GOandKegg_Pathways\interpro_output\interpro_domain_comparison.csv"
     output_dir = r"D:\Documents\Python Stuff - Programming\AMOD Big Data research project\Genomic_and_Geographic_analysis_of_high_altitude_bovids- NONGITHUB\Gene_Feature_Extraction\6_GOandKegg_Pathways\interpro_output\functional_clustering_output"

@@ -2,7 +2,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Load your Mash results
+# Load THE Mash results
 df = pd.read_csv("highres_distances.tsv", sep="\t", header=None,
                  names=["Genome1", "Genome2", "Distance", "p", "Shared"])
 
