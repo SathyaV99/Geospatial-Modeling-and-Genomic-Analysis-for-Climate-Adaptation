@@ -22,7 +22,7 @@
 * **Focus:** Climate Change, High-Altitude Adaptation, Conservation
 
 **This is the actual folder/file structure for the project. Due to the file size. Many of these files have been removed!**
-
+```text
 Genomic_and_Geographic_analysis_of_high_altitude_bovids- NONGITHUB/
 ├── GENETIC DATA_FROM_NCBI/
 │   ├── budocras_taxicolor/
@@ -399,3 +399,4 @@ Genomic_and_Geographic_analysis_of_high_altitude_bovids- NONGITHUB/
 ├── folder_tree.py
 ├── ~$README.docx
 └── ~WRL0830.tmp
+```text
