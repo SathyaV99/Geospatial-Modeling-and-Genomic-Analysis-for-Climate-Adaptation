@@ -11,7 +11,7 @@
 
 * **Repository:** Integrated SDM & Comparative Genomics pipeline for high-altitude bovids
 
-* **Tools:** Python (scikit-learn, xarray, rasterio, GDAL), R, Shell Scripts
+* **Tools:** Python (scikit-learn, xarray, cartopy, geopy, GeoPandas, pandas, rasterio, GDAL), R, Shell Scripts, 
 
 * **Techniques:** Random Forest, Spatial Jittering, Centroid Tracking
 
