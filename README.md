@@ -15,7 +15,7 @@ It uses Python and R with machine learning (Random Forest), spatial analysis (ce
 
 ![image](https://github.com/user-attachments/assets/668e54af-9175-413b-8cba-680e2d794254)
 
-![image](https://github.com/user-attachments/assets/8f267327-1067-4cf6-9ae5-b39ce835ac50)
+![immune_genes](https://github.com/user-attachments/assets/c51c1dd7-95b8-4b73-8e93-a5511bc0f0f6)
 
 * **Repository:** Integrated SDM & Comparative Genomics pipeline for high-altitude bovids
 
