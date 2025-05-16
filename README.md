@@ -8,12 +8,12 @@ This project investigates how high-altitude bovids—Wild Yak, Takin, and Water 
 
 It uses Python and R with machine learning (Random Forest), spatial analysis (centroid tracking, jittering), and genomic tools like Mash, InterProScan, ProteinOrtho, and GO enrichment.
 
-![image](https://github.com/user-attachments/assets/668e54af-9175-413b-8cba-680e2d794254)
+![image](https://github.com/user-attachments/assets/dfb5b206-fa64-4ac6-9397-ed88ebc2df1b)
 
 **Key finding:**
 * Wild yak habitats are shrinking and moving uphill. Takin habitats are expanding. These results help guide future conservation efforts.
 
-![image](https://github.com/user-attachments/assets/dfb5b206-fa64-4ac6-9397-ed88ebc2df1b)
+![image](https://github.com/user-attachments/assets/668e54af-9175-413b-8cba-680e2d794254)
 
 ![image](https://github.com/user-attachments/assets/8f267327-1067-4cf6-9ae5-b39ce835ac50)
 
