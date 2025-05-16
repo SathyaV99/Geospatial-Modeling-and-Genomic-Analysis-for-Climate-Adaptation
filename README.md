@@ -17,8 +17,7 @@ It uses Python and R with machine learning (Random Forest), spatial analysis (ce
 
 Additionally, wild yaks have fewer heat shock genes, and due to their thick fur, they struggle to regulate body heat. They are adapted to cold climates at elevations around 3,000 feet and cannot tolerate warmer temperatures.
 
-![image](https://github.com/user-attachments/assets/0c8f0b2e-980c-4622-a054-f1565b962cec)
-
+<img width="1012" alt="immune_genes" src="https://github.com/user-attachments/assets/64fc52cd-2be0-4b08-83bd-89689bc10c3c" />
 
 * **Repository:** Integrated SDM & Comparative Genomics pipeline for high-altitude bovids
 
