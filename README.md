@@ -6,6 +6,9 @@
 * Genomic analyses employ tools such as Mash for genome-wide similarity, InterProScan for protein domain annotation, ProteinOrtho for ortholog identification, and GO enrichment to reveal key adaptive signals. 
 * The results indicate that while wild yak habitats are expected to contract and shift to higher altitudes, takin habitats may expand, providing valuable insights for conservation strategies.
 
+![image](https://github.com/user-attachments/assets/dfb5b206-fa64-4ac6-9397-ed88ebc2df1b)
+
+
 * **Repository:** Integrated SDM & Comparative Genomics pipeline for high-altitude bovids
 
 * **Tools:** Python (scikit-learn, xarray, rasterio, GDAL), R, Shell Scripts
