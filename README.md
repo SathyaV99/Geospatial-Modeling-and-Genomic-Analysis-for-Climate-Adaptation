@@ -1,10 +1,17 @@
 # Genomic and Geographic Adaptations to Climate Change: A Comparative Study of Wild Yak, Takin, and High-Altitude Bovids 
 
-* The project examines climate adaptation in high-altitude bovids—Wild Yak, Takin, and Water Buffalo—by integrating species distribution modeling with comparative genomics.
-* The study focuses on the effects of climate change on habitat suitability and the genetic adaptations that support survival in extreme environments. 
-* Machine learning techniques, including Random Forest, are applied using Python and R to analyze occurrence records, environmental variables, spatial jittering, and centroid tracking for predicting current and future habitats. 
-* Genomic analyses employ tools such as Mash for genome-wide similarity, InterProScan for protein domain annotation, ProteinOrtho for ortholog identification, and GO enrichment to reveal key adaptive signals. 
-* The results indicate that while wild yak habitats are expected to contract and shift to higher altitudes, takin habitats may expand, providing valuable insights for conservation strategies.
+This project investigates how high-altitude bovids—Wild Yak, Takin, and Water Buffalo—adapt to climate change. It combines species distribution modeling and comparative genomics to find out:
+
+* Where their habitats are now and where they'll likely shift in the future
+
+* What genes and protein functions help them survive in extreme environments
+
+It uses Python and R with machine learning (Random Forest), spatial analysis (centroid tracking, jittering), and genomic tools like Mash, InterProScan, ProteinOrtho, and GO enrichment.
+
+**Key finding:**
+* Wild yak habitats are shrinking and moving uphill. Takin habitats are expanding. These results help guide future conservation efforts.
+
+
 
 ![image](https://github.com/user-attachments/assets/dfb5b206-fa64-4ac6-9397-ed88ebc2df1b)
 
