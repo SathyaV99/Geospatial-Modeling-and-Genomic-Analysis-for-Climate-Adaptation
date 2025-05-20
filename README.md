@@ -74,7 +74,7 @@ High-resolution environmental variables used to model habitat suitability for Wi
 - Align all layers to the same spatial grid.
 
 ---
-## 📍 Occurrence Data
+### 📍 Occurrence Data
 
 Species presence data used for SDM modeling.
 
