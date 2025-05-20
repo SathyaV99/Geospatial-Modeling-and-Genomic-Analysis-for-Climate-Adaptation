@@ -14,12 +14,16 @@ It uses Python and R with machine learning (Random Forest), spatial analysis (ce
 
 ![image](https://github.com/user-attachments/assets/dfb5b206-fa64-4ac6-9397-ed88ebc2df1b)
 
-**Key finding:**
+**Key finding for SDM:**
+
+
 * Wild yak habitats are shrinking and moving uphill. Takin habitats are expanding. These results help guide future conservation efforts.
 
 ![image](https://github.com/user-attachments/assets/668e54af-9175-413b-8cba-680e2d794254)
 
-Additionally, wild yaks have fewer heat shock genes, and due to their thick fur, they struggle to regulate body heat. They are adapted to cold climates at elevations around 3,000 feet and cannot tolerate warmer temperatures.
+**Key finding for Genomic Analysis:**
+
+* Wild yaks have fewer heat shock genes, and due to their thick fur, they struggle to regulate body heat. They are adapted to cold climates at elevations around 3,000 feet and cannot tolerate warmer temperatures.
 
 <img width="1012" alt="immune_genes" src="https://github.com/user-attachments/assets/64fc52cd-2be0-4b08-83bd-89689bc10c3c" />
 
