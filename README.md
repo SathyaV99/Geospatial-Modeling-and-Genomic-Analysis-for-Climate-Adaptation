@@ -2,6 +2,8 @@
 
 ## Wild Yak faces substantial habitat loss and altitudinal displacement by 2050, driven by climate change and limited adaptive genomic traits.
 
+### Computationally intensive analyses like InterProScan and BLAST averaged 2–4 days each for a single species to complete!
+
 This project investigates how high-altitude bovids—Wild Yak, Takin, and Water Buffalo—adapt to climate change. It combines species distribution modeling and comparative genomics to find out:
 
 * Where their habitats are now and where they'll likely shift in the future
