@@ -23,19 +23,6 @@ Additionally, wild yaks have fewer heat shock genes, and due to their thick fur,
 
 <img width="1012" alt="immune_genes" src="https://github.com/user-attachments/assets/64fc52cd-2be0-4b08-83bd-89689bc10c3c" />
 
-* **Repository:** Integrated SDM & Comparative Genomics pipeline for high-altitude bovids
-
-* **Tools:** Python (scikit-learn, xarray, cartopy, geopy, GeoPandas, pandas, rasterio, GDAL), R, Shell Scripts, 
-
-* **Techniques:** Random Forest, Spatial Jittering, Centroid Tracking
-
-* **Data:** Occurrence records, Environmental (TerraClimate, WorldClim), Genomic assemblies
-
-* **Genomic Tools:** Mash, InterProScan, ProteinOrtho, GO Enrichment
-
-* **Focus:** Climate Change, High-Altitude Adaptation, Conservation
-
-
 ## 🌍 Species Distribution Modeling (SDM)
 
 This part of the project models current and future habitat suitability for **Wild Yak** and **Takin** using geospatial and climate data. It applies machine learning to predict where these animals can survive based on environmental conditions.
@@ -135,5 +122,4 @@ pip install scikit-learn rasterio xarray numpy pandas matplotlib
 
 ---
 
-Let me know if you want a Dockerfile or setup script to automate the environment.
 
