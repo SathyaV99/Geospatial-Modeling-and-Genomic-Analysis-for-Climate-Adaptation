@@ -73,6 +73,7 @@ High-resolution environmental variables used to model habitat suitability for Wi
 - Rasterize Asia land shapefile to create landmask.
 - Align all layers to the same spatial grid.
 
+---
 ## 📍 Occurrence Data
 
 Species presence data used for SDM modeling.
