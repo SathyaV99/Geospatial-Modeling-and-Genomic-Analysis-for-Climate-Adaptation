@@ -41,13 +41,107 @@ Predict species range shifts from **2009 to 2050** using environmental variables
 
 ### 📦 Data Sources
 
-| Data Type           | Source            | Years Covered   | Format     |
-|---------------------|-------------------|------------------|------------|
-| Occurrence Data     | GBIF, iNaturalist, Literature | 2014–2024 | `.csv` |
-| Climate Data (Current) | TerraClimate       | 2009–2024       | `.nc`      |
-| Climate Projections | WorldClim (SSP245 & SSP585) | 2050 | `.nc` |
-| Elevation Data      | Google Earth Engine | -                | `.tif`     |
-| Landmask            | Natural Earth        | -                | `.shp` → `.tif` |
+To perform a comprehensive comparative genomics analysis of high-altitude bovids, we curated and processed full genome assemblies and annotations for three target species: **Wild Yak** (*Bos mutus*), **Takin** (*Budorcas taxicolor*), and **Water Buffalo** (*Bubalus bubalis*). These datasets were downloaded from the NCBI Assembly and GenBank/RefSeq repositories, using the most recent high-quality assemblies.
+
+### 🔗 Genome Assembly Links
+
+- [Water Buffalo](https://www.ncbi.nlm.nih.gov/datasets/genome/?taxon=89462)
+- [Indicine Cattle](https://www.ncbi.nlm.nih.gov/datasets/genome/?taxon=9915)
+- [Wild Yak](https://www.ncbi.nlm.nih.gov/datasets/genome/?taxon=72004)
+- [Takin](https://www.ncbi.nlm.nih.gov/datasets/genome/?taxon=37181)
+
+---
+
+### 📁 3.2.1 Genome File Types and Attributes
+
+#### i) Original Datasets
+
+Each genome dataset from NCBI contains multiple standard annotation files:
+
+| File Type              | Format | Description                                 |
+|------------------------|--------|---------------------------------------------|
+| `.genomic.fna`         | FASTA  | Whole-genome nucleotide sequence            |
+| `cds_from_genomic.fna` | FASTA  | Coding sequences (CDS)                      |
+| `genomic.gbff`         | GBFF   | GenBank flat file with annotations          |
+| `genomic.gff / .gtf`   | GFF/GTF| Gene feature coordinates                    |
+| `*.faa` (derived)      | FASTA  | Translated protein sequences                |
+
+**Genome file sizes (compressed/uncompressed):**
+
+| Species         | Compressed (GB) | Uncompressed (GB) |
+|-----------------|------------------|--------------------|
+| Wild Yak        | 3.60 GB          | 12.10 GB           |
+| Takin           | 3.73 GB          | 12.60 GB           |
+| Water Buffalo   | 3.63 GB          | 12.70 GB           |
+
+---
+
+#### ii) Derived Datasets
+
+To support analysis, original files were parsed and converted into structured, readable formats.
+
+##### a) Genomic Features Dataset (`*_genomic_features.csv`)
+
+Derived from `.gbff` files. Each row corresponds to a gene or feature entry.
+
+| Field         | Description                                                 |
+|---------------|-------------------------------------------------------------|
+| Contig        | ID of the chromosome/contig                                |
+| Feature_Type  | Type (gene, ncRNA, source, etc.)                           |
+| Start/End     | Genomic coordinates                                        |
+| Strand        | +1 or -1 orientation                                       |
+| Locus_Tag     | Unique identifier                                          |
+| Gene          | Gene name                                                  |
+| Product       | RNA/protein description                                    |
+| Protein_ID    | Protein identifier                                         |
+| Translation   | Amino acid sequence (if applicable)                        |
+| Note          | Comments or method used                                    |
+
+File size: **35–75 MB**
+
+---
+
+##### b) Protein FASTA Dataset (`*_proteins.fasta`)
+
+Derived from the genomic features CSV. Used in downstream tools like InterProScan.
+
+- FASTA format (`>XP_XXXXXX...` headers with protein sequence)
+- File size: **18–46 MB**
+
+---
+
+##### c) InterProScan Annotation Dataset (`*_interpro.tsv`)
+
+Generated from InterProScan runs on protein sequences. Includes functional domains and pathway annotations.
+
+Example:
+```
+XP_052517070.1 ... SSF144270 Eferin C-domain ... IPR037245 ... Reactome:R-HSA-432040
+```
+
+- File size: **3.75–10 GB**
+
+---
+
+##### d) Genomic CDS Features Dataset (`*_CDS.csv`)
+
+Subset of genomic features containing only `CDS`, `gene`, and `mRNA` entries.
+
+- Extracted from the original genomic features CSV.
+- File size: **22–57 MB**
+
+---
+
+##### e) SuperMatrix Dataset (`core_orthologs_supermatrix.fasta`)
+
+Concatenated amino acid alignments of orthologous proteins.
+
+| Field           | Description                                           |
+|------------------|-------------------------------------------------------|
+| Species ID       | FASTA headers like `>Takin`, `>Yak`, `>Buffalo`       |
+| Amino Acid Seq   | MAFFT-aligned, concatenated ortholog sequences        |
+| Sequence Length  | Total length of concatenated orthologs                |
+| Alignment Gaps   | Represented by `-` for alignment                      |
 
 ---
 
