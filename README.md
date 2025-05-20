@@ -27,7 +27,7 @@ It uses Python and R with machine learning (Random Forest), spatial analysis (ce
 
 <img width="1012" alt="immune_genes" src="https://github.com/user-attachments/assets/64fc52cd-2be0-4b08-83bd-89689bc10c3c" />
 
-## 🌍 Species Distribution Modeling (SDM)
+# 🌍 Species Distribution Modeling (SDM)
 
 This part of the project models current and future habitat suitability for **Wild Yak** and **Takin** using geospatial and climate data. It applies machine learning to predict where these animals can survive based on environmental conditions.
 
@@ -126,7 +126,7 @@ pip install scikit-learn rasterio xarray numpy pandas matplotlib
 
 ---
 
-## 🐝 Genomic Analysis
+# 🐝 Genomic Analysis
 
 This part of the project investigates **genetic adaptations** of Wild Yak, Takin, and Water Buffalo by comparing their full genomes, protein domains, and gene families.
 
