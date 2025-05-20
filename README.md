@@ -197,7 +197,7 @@ To perform a comprehensive comparative genomics analysis of high-altitude bovids
 
 ---
 
-### 📁 3.2.1 Genome File Types and Attributes
+### 📁 Genome File Types and Attributes
 
 #### i) Original Datasets
 
