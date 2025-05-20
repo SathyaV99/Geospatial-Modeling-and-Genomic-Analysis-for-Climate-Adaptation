@@ -39,9 +39,9 @@ Predict species range shifts from **2009 to 2050** using environmental variables
 
 ---
 
-## 📦 Data Sources
+### 📦 Data Sources
 
-## 🌦️ Climate and Environmental Data
+### 🌦️ Climate and Environmental Data
 
 High-resolution environmental variables used to model habitat suitability for Wild Yak and Takin.
 
