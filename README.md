@@ -126,4 +126,124 @@ pip install scikit-learn rasterio xarray numpy pandas matplotlib
 
 ---
 
+## 🐝 Genomic Analysis
+
+This part of the project investigates **genetic adaptations** of Wild Yak, Takin, and Water Buffalo by comparing their full genomes, protein domains, and gene families.
+
+---
+
+### 🔸 Objective
+
+Identify genetic traits linked to high-altitude survival using comparative genomics and functional annotations.
+
+---
+
+### 📦 Data Sources
+
+- Genomes from **NCBI Assembly** (Wild Yak, Takin, Water Buffalo)
+- Raw formats: `.genomic.fna`, `.gbff`, `.gff`, `.gtf`, `.faa`
+- Derived formats: `.csv`, `.fasta`, `.tsv` for downstream analysis
+
+---
+
+### 🛠️ Methodology
+
+#### 1. **Genome-Wide Similarity with Mash**
+- Fast estimation of genetic distance between species using k-mer sketches
+- Output: `highres_distances.tsv`
+- Yak & Buffalo are genetically closer than Takin
+
+#### 2. **Protein Domain Analysis with InterProScan**
+- Protein sequences translated from `.gbff`
+- InterProScan run to detect domains, motifs, and GO terms
+- Output: `.tsv` with domain annotations for each species
+
+#### 3. **Functional Enrichment (GO)**
+- Extracted biological processes and molecular functions per species
+- Identified unique and shared gene functions
+
+#### 4. **Ortholog Detection with ProteinOrtho**
+- All-vs-all comparison of proteomes
+- Output: Ortholog clusters shared across species
+- Helps detect species-specific vs. core gene families
+
+#### 5. **Gene Grouping and Product Distribution**
+- Grouped genes by function (e.g., immune, signaling, cytoskeleton)
+- Compared counts across species to detect expansion/loss trends
+
+#### 6. **Phylogenetic Tree Construction**
+- Built from MAFFT-aligned orthologous proteins
+- Confirmed evolutionary distance (Takin most divergent)
+
+---
+
+### 📈 Key Findings
+
+| Species       | Genetic Focus                                    |
+|---------------|--------------------------------------------------|
+| Wild Yak      | Cytoskeletal proteins, RNA-binding, cold response |
+| Takin         | Immune expansion, structural and ECM genes        |
+| Water Buffalo | Broad sensory, immune, growth & stress genes     |
+
+#### Genetic Distances (Mash)
+- Yak vs Buffalo: 97.13%
+- Takin vs Buffalo: 94.80%
+- Yak vs Takin: 94.56%
+
+#### Domain Highlights
+- **Yak**: PDZ, RRM, Spectrin (cold/hypoxia adaptations)
+- **Takin**: Immunoglobulin, Fibronectin, ECM, GPCR
+- **Buffalo**: Richest domain diversity (reproduction, immunity)
+
+---
+
+### 🗂️ File Structure
+
+```
+Gene_Feature_Extraction/
+├── 1_genomic_feature_extraction/       # Extract CSV from GBFF
+├── 2_overview_of_features/             # Plot gene feature stats
+├── 3_gene_grouping/                    # Compare gene families
+├── 4_protein_translation/              # Extract & convert to FASTA
+├── 5_protein_extraction_and_analysis/  # Run & analyze InterProScan
+├── 6_GOandKegg_Pathways/               # Enrich and cluster GO terms
+├── 7_Gene_extraction/                  # Extract CDS-only features
+├── 8_gene_visualization/               # Plot gene product overlaps
+├── 9-ProteinOrtho-Orthologs_analysis/  # Core ortholog clustering
+├── 10-Phylogenetic_Tree_ortholog/      # Build & visualize tree
+```
+
+---
+
+### ▶️ How to Run
+
+#### InterProScan:
+```bash
+interproscan.sh -i species_proteins.fasta -o output.tsv -f TSV
+```
+
+#### Gene Grouping:
+```bash
+python gene_grouping.py
+```
+
+#### Ortholog Detection:
+```bash
+proteinortho5.pl *.faa > myproject.proteinortho.tsv
+```
+
+#### Plot Heatmaps:
+```bash
+python extract_output_heatmap.py
+```
+
+---
+
+### 🔧 Tools Used
+
+- **Python**: Data processing and visualization
+- **WSL / Linux**: Running heavy tools like InterProScan, Mash
+- **R**: Functional clustering, GO enrichment
+- **ProteinOrtho**, **MAFFT**, **IQTree**: For phylogeny and orthologs
+
 
