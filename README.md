@@ -134,6 +134,13 @@ Species presence data used for SDM modeling.
 | Wild Yak    | Habitat **shrinks** by 2050      | 4750m → ~4810m       | NW by ~110 km      |
 | Takin       | Habitat **expands** by 2050      | Increase expected    | W by ~121 km        |
 
+### Visulaization
+
+Wild Yak:
+
+![image](https://github.com/user-attachments/assets/4bba7803-808d-4dd7-89f4-3fb96095046b)
+![image](https://github.com/user-attachments/assets/b6e5ed3b-500f-43fd-887c-9b7d5544e3d8)
+
 ---
 
 ### 🗂️ File Structure
@@ -328,6 +335,9 @@ Concatenated amino acid alignments of orthologous proteins.
 | Takin         | Immune expansion, structural and ECM genes        |
 | Water Buffalo | Broad sensory, immune, growth & stress genes     |
 
+![image](https://github.com/user-attachments/assets/3bf2d0db-9e2a-489d-b431-776a75ed27dd)
+
+
 #### Genetic Distances (Mash)
 - Yak vs Buffalo: 97.13%
 - Takin vs Buffalo: 94.80%
@@ -337,6 +347,8 @@ Concatenated amino acid alignments of orthologous proteins.
 - **Yak**: PDZ, RRM, Spectrin (cold/hypoxia adaptations)
 - **Takin**: Immunoglobulin, Fibronectin, ECM, GPCR
 - **Buffalo**: Richest domain diversity (reproduction, immunity)
+
+![image](https://github.com/user-attachments/assets/1c69a47e-04ab-403e-a0c9-b5a6929a00b1)
 
 ---
 
