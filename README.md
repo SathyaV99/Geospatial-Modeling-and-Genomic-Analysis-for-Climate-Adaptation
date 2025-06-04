@@ -27,158 +27,6 @@ It uses Python and R with machine learning (Random Forest), spatial analysis (ce
 
 <img width="1012" alt="immune_genes" src="https://github.com/user-attachments/assets/64fc52cd-2be0-4b08-83bd-89689bc10c3c" />
 
-# 🌍 Species Distribution Modeling (SDM)
-
-This part of the project models current and future habitat suitability for **Wild Yak** and **Takin** using geospatial and climate data. It applies machine learning to predict where these animals can survive based on environmental conditions.
-
----
-
-### 🔸 Objective
-
-Predict species range shifts from **2009 to 2050** using environmental variables and occurrence records.
-
----
-
-### 📦 Data Sources
-
-### 🌦️ Climate and Environmental Data
-
-High-resolution environmental variables used to model habitat suitability for Wild Yak and Takin.
-
-### Data Sources
-
-- **TerraClimate (2009–2024)** – [https://www.climatologylab.org/terraclimate.html](https://www.climatologylab.org/terraclimate.html)
-- **WorldClim 2050 SSP245 & SSP585** – [https://www.worldclim.org/data/cmip6/cmip6_clim2.5m.html](https://www.worldclim.org/data/cmip6/cmip6_clim2.5m.html)
-- **Google Earth Engine DEM** – [https://developers.google.com/earth-engine/datasets](https://developers.google.com/earth-engine/datasets)
-- **Natural Earth Landmask** – [https://www.naturalearthdata.com](https://www.naturalearthdata.com)
-
----
-
-### Environmental Data Summary
-
-- **Precipitation**: TerraClimate `.nc` files (2009–2024), annual sum, stacked.
-- **Min Temperature**: TerraClimate `.nc` files (2009–2024), annual mean.
-- **Max Temperature**: TerraClimate `.nc` files (2009–2024), annual mean.
-- **Future Climate**: WorldClim SSP245 and SSP585 for 2050.
-- **Elevation**: Merged `.tif` from Earth Engine, resampled with GDAL warp.
-- **Landmask**: Rasterized from Natural Earth shapefile.
-
----
-
-### Processing Steps
-
-- Download monthly ppt, tmin, tmax NetCDF files.
-- Aggregate annual values using `xarray`.
-- Merge and resample elevation `.tif` files using GDAL warp.
-- Rasterize Asia land shapefile to create landmask.
-- Align all layers to the same spatial grid.
-
----
-### 📍 Occurrence Data
-
-Species presence data used for SDM modeling.
-
-- **Species**:
-  - Wild Yak: 366 records
-  - Takin: 692 records
-
-- **Columns**:
-  - Longitude, Latitude
-  - Station Name, Climate ID, Date/Time, Year, Month, Day
-  - Max/Min/Mean Temp (°C)
-  - Heat/Cool Degree Days (°C)
-  - Total Rain (mm), Total Snow (cm), Total Precip (mm)
-  - Snow on Ground (cm)
-  - Wind Gust Direction and Speed
-  - Data Quality Flags
-
-- Data cleaned and spatially jittered.
-- Combined with environmental layers for model input.
-
----
-
-### 🛠️ Methodology
-
-#### 1. **Data Preprocessing**
-- Downloaded and cleaned species presence data (lat/lon, date).
-- Applied **spatial jittering** to reduce location bias:
-  - Wild Yak: 10 synthetic points per record
-  - Takin: 2 synthetic points per record
-- Climate variables:
-  - **Total Precipitation**
-  - **Minimum Temperature**
-  - **Maximum Temperature**
-  - **Elevation** (resampled to climate resolution)
-- Pseudo-absence points generated randomly.
-
-#### 2. **Modeling**
-- **Algorithm Used**: Random Forest Classifier (`scikit-learn`)
-- **Training/Test Split**: 70/30
-- **Evaluation Metrics**: ROC-AUC, confusion matrix
-- **Best ROC-AUC**:
-  - Wild Yak: **0.999**
-  - Takin: **0.98+**
-
-#### 3. **Prediction & Mapping**
-- Suitability scores from **0 to 1** generated for each year (2009–2024).
-- Future projections mapped using SSP245 and SSP585 climate scenarios (2050).
-- Threshold (0.5) used to classify presence/absence.
-- Habitat centroids calculated annually to track spatial shifts.
-
----
-
-### 📈 Key Results
-
-| Species     | Trend                           | Elevation Shift     | Centroid Movement |
-|-------------|----------------------------------|----------------------|--------------------|
-| Wild Yak    | Habitat **shrinks** by 2050      | 4750m → ~4810m       | NW by ~110 km      |
-| Takin       | Habitat **expands** by 2050      | Increase expected    | W by ~121 km        |
-
-### Visulaization
-
-Wild Yak:
-
-![image](https://github.com/user-attachments/assets/4bba7803-808d-4dd7-89f4-3fb96095046b)
-![image](https://github.com/user-attachments/assets/b6e5ed3b-500f-43fd-887c-9b7d5544e3d8)
-
----
-
-### 🗂️ File Structure
-
-```
-SDM/
-├── Code/
-│   └── SDM_Final.ipynb        # Core modeling notebook
-├── Data/
-│   ├── takin_Final_cleaned.xls
-│   ├── wild_yak_Final_cleaned.xls
-│   └── elevation_resampled_to_climate.tif
-├── Output/
-│   ├── sdm_takin/
-│   │   ├── suitability_map_20XX.png, .npy
-│   │   ├── centroid_shifts_takin.csv
-│   │   └── takin_suitability_area_trend.png
-│   └── sdm_yak/
-│       ├── suitability_map_20XX.png, .npy
-│       ├── centroid_shifts.csv
-│       └── yak_suitability_area_trend_final.png
-```
-
----
-### ▶️ How to Run
-
-```bash
-cd SDM/Code
-jupyter notebook SDM_Final.ipynb
-```
-
-Make sure to have the following Python packages installed:
-```bash
-pip install scikit-learn rasterio xarray numpy pandas matplotlib
-```
-
----
-
 # 🐝 Genomic Analysis
 
 This part of the project investigates **genetic adaptations** of Wild Yak, Takin, and Water Buffalo by comparing their full genomes, protein domains, and gene families.
@@ -349,6 +197,158 @@ Concatenated amino acid alignments of orthologous proteins.
 - **Buffalo**: Richest domain diversity (reproduction, immunity)
 
 ![image](https://github.com/user-attachments/assets/1c69a47e-04ab-403e-a0c9-b5a6929a00b1)
+
+---
+
+# 🌍 Species Distribution Modeling (SDM)
+
+This part of the project models current and future habitat suitability for **Wild Yak** and **Takin** using geospatial and climate data. It applies machine learning to predict where these animals can survive based on environmental conditions.
+
+---
+
+### 🔸 Objective
+
+Predict species range shifts from **2009 to 2050** using environmental variables and occurrence records.
+
+---
+
+### 📦 Data Sources
+
+### 🌦️ Climate and Environmental Data
+
+High-resolution environmental variables used to model habitat suitability for Wild Yak and Takin.
+
+### Data Sources
+
+- **TerraClimate (2009–2024)** – [https://www.climatologylab.org/terraclimate.html](https://www.climatologylab.org/terraclimate.html)
+- **WorldClim 2050 SSP245 & SSP585** – [https://www.worldclim.org/data/cmip6/cmip6_clim2.5m.html](https://www.worldclim.org/data/cmip6/cmip6_clim2.5m.html)
+- **Google Earth Engine DEM** – [https://developers.google.com/earth-engine/datasets](https://developers.google.com/earth-engine/datasets)
+- **Natural Earth Landmask** – [https://www.naturalearthdata.com](https://www.naturalearthdata.com)
+
+---
+
+### Environmental Data Summary
+
+- **Precipitation**: TerraClimate `.nc` files (2009–2024), annual sum, stacked.
+- **Min Temperature**: TerraClimate `.nc` files (2009–2024), annual mean.
+- **Max Temperature**: TerraClimate `.nc` files (2009–2024), annual mean.
+- **Future Climate**: WorldClim SSP245 and SSP585 for 2050.
+- **Elevation**: Merged `.tif` from Earth Engine, resampled with GDAL warp.
+- **Landmask**: Rasterized from Natural Earth shapefile.
+
+---
+
+### Processing Steps
+
+- Download monthly ppt, tmin, tmax NetCDF files.
+- Aggregate annual values using `xarray`.
+- Merge and resample elevation `.tif` files using GDAL warp.
+- Rasterize Asia land shapefile to create landmask.
+- Align all layers to the same spatial grid.
+
+---
+### 📍 Occurrence Data
+
+Species presence data used for SDM modeling.
+
+- **Species**:
+  - Wild Yak: 366 records
+  - Takin: 692 records
+
+- **Columns**:
+  - Longitude, Latitude
+  - Station Name, Climate ID, Date/Time, Year, Month, Day
+  - Max/Min/Mean Temp (°C)
+  - Heat/Cool Degree Days (°C)
+  - Total Rain (mm), Total Snow (cm), Total Precip (mm)
+  - Snow on Ground (cm)
+  - Wind Gust Direction and Speed
+  - Data Quality Flags
+
+- Data cleaned and spatially jittered.
+- Combined with environmental layers for model input.
+
+---
+
+### 🛠️ Methodology
+
+#### 1. **Data Preprocessing**
+- Downloaded and cleaned species presence data (lat/lon, date).
+- Applied **spatial jittering** to reduce location bias:
+  - Wild Yak: 10 synthetic points per record
+  - Takin: 2 synthetic points per record
+- Climate variables:
+  - **Total Precipitation**
+  - **Minimum Temperature**
+  - **Maximum Temperature**
+  - **Elevation** (resampled to climate resolution)
+- Pseudo-absence points generated randomly.
+
+#### 2. **Modeling**
+- **Algorithm Used**: Random Forest Classifier (`scikit-learn`)
+- **Training/Test Split**: 70/30
+- **Evaluation Metrics**: ROC-AUC, confusion matrix
+- **Best ROC-AUC**:
+  - Wild Yak: **0.999**
+  - Takin: **0.98+**
+
+#### 3. **Prediction & Mapping**
+- Suitability scores from **0 to 1** generated for each year (2009–2024).
+- Future projections mapped using SSP245 and SSP585 climate scenarios (2050).
+- Threshold (0.5) used to classify presence/absence.
+- Habitat centroids calculated annually to track spatial shifts.
+
+---
+
+### 📈 Key Results
+
+| Species     | Trend                           | Elevation Shift     | Centroid Movement |
+|-------------|----------------------------------|----------------------|--------------------|
+| Wild Yak    | Habitat **shrinks** by 2050      | 4750m → ~4810m       | NW by ~110 km      |
+| Takin       | Habitat **expands** by 2050      | Increase expected    | W by ~121 km        |
+
+### Visulaization
+
+Wild Yak:
+
+![image](https://github.com/user-attachments/assets/4bba7803-808d-4dd7-89f4-3fb96095046b)
+![image](https://github.com/user-attachments/assets/b6e5ed3b-500f-43fd-887c-9b7d5544e3d8)
+
+---
+
+### 🗂️ File Structure
+
+```
+SDM/
+├── Code/
+│   └── SDM_Final.ipynb        # Core modeling notebook
+├── Data/
+│   ├── takin_Final_cleaned.xls
+│   ├── wild_yak_Final_cleaned.xls
+│   └── elevation_resampled_to_climate.tif
+├── Output/
+│   ├── sdm_takin/
+│   │   ├── suitability_map_20XX.png, .npy
+│   │   ├── centroid_shifts_takin.csv
+│   │   └── takin_suitability_area_trend.png
+│   └── sdm_yak/
+│       ├── suitability_map_20XX.png, .npy
+│       ├── centroid_shifts.csv
+│       └── yak_suitability_area_trend_final.png
+```
+
+---
+### ▶️ How to Run
+
+```bash
+cd SDM/Code
+jupyter notebook SDM_Final.ipynb
+```
+
+Make sure to have the following Python packages installed:
+```bash
+pip install scikit-learn rasterio xarray numpy pandas matplotlib
+```
 
 ---
 
